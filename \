@@ -1,0 +1,28 @@
+const prompt = require("prompt-sync")();
+const length = parseInt(prompt("how man directions:"));
+const array = [];
+for (i = 0; i < length; i++) {
+  let obj = { value: 0, corner: 0 };
+  obj[value] = parseInt(prompt(`value ${i + 1}: `));
+  obj[corner] = parseInt(prompt(`corner ${i + 1}: `));
+  array.push(obj);
+}
+const sum = (directionsArray) => {
+  let Rx = 0;
+  let Ry = 0;
+  for (i = 0; i < directionsArray.length; i++) {
+    Rx +=
+      directionsArray[i].value *
+      Math.cos((directionsArray[i].corner * Math.PI) / 180);
+  }
+
+  for (i = 0; i < directionsArray.length; i++) {
+    Ry +=
+      directionsArray[i].value *
+      Math.sin((directionsArray[i].corner * Math.PI) / 180);
+  }
+  let R = Math.sqrt(Ry ** 2 + Rx ** 2);
+  return R;
+};
+
+console.log(sum(array));
